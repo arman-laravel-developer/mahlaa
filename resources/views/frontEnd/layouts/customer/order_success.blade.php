@@ -35,10 +35,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                @php 
-                                    
+                                @php
+
                                     $payments = App\Models\Payment::where('order_id',$order->id)->orderBy('id','desc')->first();
-                                
+
                                 @endphp
                                 <td colspan="4">
                                     <p>Payment Method</p>
@@ -64,7 +64,7 @@
                             <tr>
                                 <td>
                                     <p>{{$value->product_name}} x {{$value->qty}}</p>
-                                    
+
                                 </td>
                                 <td><p><strong>৳ {{$value->sale_price}}</strong></p></td>
                             </tr>
@@ -173,7 +173,7 @@
                         </tbody>
                     </table>
                     <div class="invoice-bottom">
-                        
+
                         <table class="table" style="width: 300px; float: right;    margin-bottom: 30px;">
                             <tbody style="background:#f1f9f8">
                                 <tr>
@@ -206,6 +206,33 @@
 </section>
 @endsection
 @push('script')
+
+<!-- Google Analytics Purchase Event -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push({
+        event: "purchase",
+        ecommerce: {
+            transaction_id: "{{$order->invoice_id}}",
+            currency: "BDT",
+            value: {{$order->amount}},
+            tax: 0,
+            shipping: {{$order->shipping_charge}},
+            items: [@foreach($order->orderdetails as $key=>$value)
+                {
+                    item_name: "{{$value->product_name}}",
+                    item_id: "{{$value->product_id}}",
+                    price: {{$value->sale_price}},
+                    item_brand: "{{App\Models\Product::find($value->product_id)->brand->name ?? ''}}",
+                    item_category: "{{App\Models\Product::find($value->product_id)->category->name ?? ''}}",
+                    currency: "BDT",
+                    quantity: {{$value->qty}}
+                },
+            @endforeach]
+        }
+    });
+</script>
 <script src="{{asset('public/frontEnd/')}}/js/parsley.min.js"></script>
 <script src="{{asset('public/frontEnd/')}}/js/form-validation.init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -214,7 +241,7 @@
 function showTotalAndDownload() {
     // Show the total section
     document.getElementById('customer-invoice').style.display = 'block';
-    
+
     // Download PDF after showing the total section
     var element = document.querySelector('.invoice-innter'); // Select the invoice section to convert to PDF
     html2pdf().from(element).set({
@@ -223,7 +250,7 @@ function showTotalAndDownload() {
         html2canvas: { scale: 2 },
         jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
     }).save();
-    
+
     // Optionally, hide the total section again after saving the PDF
     setTimeout(() => {
         document.getElementById('customer-invoice').style.display = 'none';
