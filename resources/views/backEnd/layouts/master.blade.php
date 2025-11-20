@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- item-->
-                <a href="{{route('dashboard')}}" class="dropdown-item notify-item">
+                <a href="{{route('dashboard')}}" class="notify-item">
                   <i class="fe-user"></i>
                   <span>Dashboard</span>
                 </a>
