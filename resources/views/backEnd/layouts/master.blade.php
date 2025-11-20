@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- item-->
-                <a href="{{route('dashboard')}}" class="notify-item">
+                <a href="{{route('dashboard')}}" class="dropdown-item notify-item">
                   <i class="fe-user"></i>
                   <span>Dashboard</span>
                 </a>
@@ -246,7 +246,7 @@
           <div id="sidebar-menu">
             <ul id="side-menu">
               <li>
-                <a href="{{url('admin/dashboard')}}" data-bs-toggle="collapse">
+                <a href="{{url('admin/dashboard')}}">
                   <i data-feather="airplay"></i>
                   <span> Dashboard </span>
                 </a>
