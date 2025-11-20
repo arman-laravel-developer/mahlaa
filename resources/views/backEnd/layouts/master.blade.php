@@ -509,7 +509,7 @@
         <footer class="footer">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-12 text-end"><a href="https://creativedesign.com.bd" target="_blank">Website Designed by: Creative Design</a></div>
+              <div class="col-md-12 text-end"><a href="https://armanalibd.com" target="_blank">Website Designed by: Md Arman Ali</a></div>
             </div>
           </div>
         </footer>

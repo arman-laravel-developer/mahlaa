@@ -419,8 +419,8 @@ src="https://www.facebook.com/tr?id=2355381278153504&ev=PageView&noscript=1"
 
 
 
-								<p><span style="color: white;">Copyright © {{ date('Y') }} {{$generalsetting->name}}. All rights reserved </span>
-								{{-- <p><span style="color: white;">Copyright © {{ date('Y') }} {{$generalsetting->name}}. All rights reserved </span> | <span style="color: white;">Website Designed by: <a href=""><span style="color: white;"></span></a></span></p> --}}
+								
+								<p><span style="color: white;">Copyright © {{ date('Y') }} {{$generalsetting->name}}. All rights reserved </span> | <span style="color: white;">Website Designed by: <a href="https://armanalibd.com"><span style="color: white;">Md Arman Ali</span></a></span></p>
                             </div>
                         </div>
                     </div>
