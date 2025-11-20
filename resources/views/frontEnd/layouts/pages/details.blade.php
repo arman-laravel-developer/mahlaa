@@ -44,11 +44,12 @@
                                             <div class="sale-badge-box">
                                                 <span class="sale-badge-text">
                                                     <p> @php $discount=(((($details->old_price)-($details->new_price))*100) / ($details->old_price)) @endphp {{ number_format($discount, 0) }}%</p>
-                                                    ছাড়
+                                                    ছাড়
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @endif
                                 <div class="details_slider owl-carousel">
                                     @foreach ($details->images as $value)
@@ -449,7 +450,7 @@
                                         <div class="sale-badge-box">
                                             <span class="sale-badge-text">
                                                 <p>@php $discount=(((($value->old_price)-($value->new_price))*100) / ($value->old_price)) @endphp {{ number_format($discount, 0) }}%</p>
-                                                ছাড়
+                                                ছাড়
                                             </span>
                                         </div>
                                     </div>
@@ -588,18 +589,20 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.add_cart_btn').click(function() {
+        $('#add_to_cart').click(function() {
             gtag("event", "add_to_cart", {
                 currency: "BDT",
-                value: "{{$details->new_price}}",
+                value: "1.5",
                 items: [
-                    {
-                        item_id: "{{$details->id}}",
-                        item_name: "{{$details->name}}",
-                        price: "{{$details->new_price}}",
-                        currency: "BDT",
-                        quantity: parseInt($('input[name="qty"]').val()) || 1
-                    }
+                    @foreach (Cart::instance('shopping')->content() as $cartInfo)
+                        {
+                            item_id: "{{$details->id}}",
+                            item_name: "{{$details->name}}",
+                            price: "{{$details->new_price}}",
+                            currency: "BDT",
+                            quantity: {{ $cartInfo->qty ?? 0 }}
+                        },
+                    @endforeach
                 ]
             });
         });
@@ -607,18 +610,20 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.order_now_btn').click(function() {
+        $('#order_now').click(function() {
             gtag("event", "add_to_cart", {
                 currency: "BDT",
-                value: "{{$details->new_price}}",
+                value: "1.5",
                 items: [
-                    {
-                        item_id: "{{$details->id}}",
-                        item_name: "{{$details->name}}",
-                        price: "{{$details->new_price}}",
-                        currency: "BDT",
-                        quantity: parseInt($('input[name="qty"]').val()) || 1
-                    }
+                    @foreach (Cart::instance('shopping')->content() as $cartInfo)
+                        {
+                            item_id: "{{$details->id}}",
+                            item_name: "{{$details->name}}",
+                            price: "{{$details->new_price}}",
+                            currency: "BDT",
+                            quantity: {{ $cartInfo->qty ?? 0 }}
+                        },
+                    @endforeach
                 ]
             });
         });
@@ -722,4 +727,4 @@
         zoomrange: [3, 3]
     });
 </script>
-
+@endpush
