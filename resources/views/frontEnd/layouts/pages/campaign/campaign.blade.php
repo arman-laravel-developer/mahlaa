@@ -331,7 +331,6 @@
                 </div>
             </div>
         </section>
-        {{--
         <section style="background: url('{{asset($campaign_data->banner)}}'); background-repeat: no-repeat; background-size:cover; background-position: center;" >
             <div class="container">
                 <div class="row">
@@ -342,7 +341,7 @@
                                     <h2>{{$campaign_data->banner_title}}</h2>
                                     
                                     <a href="#order_form" class="cam_order_now" id="cam_order_now"><i class="fa-solid fa-cart-shopping"></i> Order Now </a>
-                                    <p class="megaoffer_btn">মেগা অফার {{$subtotal}} Tk টাকা</p>
+                                    <p class="megaoffer_btn">Mega Offer {{$subtotal}} Tk</p>
                                 </div>
                             </div>
                         </div>
@@ -350,14 +349,13 @@
                 </div>
             </div>
         </section>
-        --}}
         @if($campaign_data->video!=null)
         <section class="camp_video_sec">
             <div class="container">
             
                 <div class="row justify-content-center gy-2 gy-md-4">
                     <div class="col-md-8">
-                        <h2 class="p-2 py-md-3 rounded text-center" style="background-color:black;border:green 2px solid;color:white;font-weight:bolder">প্রডাক্টের "ভিডিও দেখুন"</h2>
+                        <h2 class="p-2 py-md-3 rounded text-center" style="background-color:black;border:green 2px solid;color:white;font-weight:bolder">Watch Product "Video"</h2>
                     </div>
                     <div class="col-md-8 col-sm-12">
                         <div class="camp_vid rounded" style="border:5px solid red">
@@ -381,13 +379,13 @@
             <div class="container my-2 my-md-4">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <h2 class="text-center p-2 p-md-4 rounded" style="background-color:#FBEFF7;border:2px dashed #F1ACE7">আমাদের থেকে বিস্তারিত জানতে এই নাম্বারে কল করুন {{$contact->phone}}</h2>
+                        <h2 class="text-center p-2 p-md-4 rounded" style="background-color:#FBEFF7;border:2px dashed #F1ACE7">For details, call us at {{$contact->phone}}</h2>
                         <div class="row justify-content-center my-2 my-md-4 gy-2">
                             <div class="col-md-6 custom_btn">
                                 <div class="shadow-lg">
                                     <a href="tel:{{$contact->phone}}" 
                                     class="btn btn-danger btn-lg d-block py-md-3 fs-2 fw-bolder button-3d button-animated-border" >
-                                        <i class="fa-solid fa-phone"></i> আমাদের কল করুন </a>
+                                        <i class="fa-solid fa-phone"></i> Call Us </a>
                                 </div>
                                 
                             </div>
@@ -395,7 +393,7 @@
                             <div class="shadow-lg">
                                 <a href="https://wa.me/{{$contact->whatsapp}}" 
                                 class="btn btn-success btn-lg d-block py-md-3 fs-2 text-light fw-bolder button-3d button-animated-border">
-                                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ  
+                                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
                                     </a>
                              </div>
                                 
@@ -417,7 +415,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h2>বিস্তারিত</h2>
+                                <h2>Details</h2>
                                 {!! $campaign_data->short_description !!}
                                 <br>
                                 <br>
@@ -457,7 +455,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="ord_btn">
-                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"> অর্ডার করতে ক্লিক করুন <i class="fa-solid fa-hand-point-right"></i> </a>
+                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"> Click to Order <i class="fa-solid fa-hand-point-right"></i> </a>
                                 </div>
                             </div>
                         </div>
@@ -485,7 +483,7 @@
                            </div>
                             <div class="col-sm-12">
                                 <div class="ord_btn">
-                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"> অর্ডার করতে ক্লিক করুন <i class="fa-solid fa-hand-point-right"></i> </a>
+                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"> Click to Order <i class="fa-solid fa-hand-point-right"></i> </a>
                                 </div>
                             </div>
                         </div>
@@ -517,7 +515,7 @@
                         @if($products->count()>1)
                         <div class="card mb-2 ">
                           <div class="card-header">
-                                <h5 class="potro_font">একটি পণ্য সিলেক্ট করুনণ </h5>
+                                <h5 class="potro_font">Select a Product </h5>
                             </div>  
                              <div class="card-body">
                                 <div class="row g-2">
@@ -541,16 +539,16 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="potro_font">পণ্যের বিবরণ </h5>
+                                <h5 class="potro_font">Product Details </h5>
                             </div>
                             <div class="card-body cartlist  table-responsive">
                                 <table class="cart_table table table-bordered table-striped text-center mb-0">
                                     <thead>
                                        <tr>
                                           
-                                          <th style="width: 40%;">প্রোডাক্ট</th>
-                                          <th style="width: 20%;">পরিমাণ</th>
-                                          <th style="width: 20%;">মূল্য</th>
+                                          <th style="width: 40%;">Product</th>
+                                          <th style="width: 20%;">Quantity</th>
+                                          <th style="width: 20%;">Price</th>
                                          </tr>
                                     </thead>
     
@@ -622,21 +620,21 @@
                                     </tbody>
                                     <tfoot>
                                          <tr>
-                                          <th colspan="2" class="text-end px-4">মোট</th>
+                                          <th colspan="2" class="text-end px-4">Subtotal</th>
                                           <td>
-                                           <span id="net_total"><span class="alinur">৳ </span><strong>{{$subtotal}}</strong></span>
+                                           <span id="net_total"><span class="alinur">Tk </span><strong>{{$subtotal}}</strong></span>
                                           </td>
                                          </tr>
                                          <tr>
-                                          <th colspan="2" class="text-end px-4">ডেলিভারি চার্জ</th>
+                                          <th colspan="2" class="text-end px-4">Delivery Charge</th>
                                           <td>
-                                           <span id="cart_shipping_cost"><span class="alinur">৳ </span><strong>{{$shipping}}</strong></span>
+                                           <span id="cart_shipping_cost"><span class="alinur">Tk </span><strong>{{$shipping}}</strong></span>
                                           </td>
                                          </tr>
                                          <tr>
-                                          <th colspan="2" class="text-end px-4">সর্বমোট</th>
+                                          <th colspan="2" class="text-end px-4">Total</th>
                                           <td>
-                                           <span id="grand_total"><span class="alinur">৳ </span><strong>{{$subtotal+$shipping}}</strong></span>
+                                           <span id="grand_total"><span class="alinur">Tk </span><strong>{{$subtotal+$shipping}}</strong></span>
                                           </td>
                                          </tr>
                                         </tfoot>
@@ -652,14 +650,14 @@
                         @csrf
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="potro_font">আপনার ইনফরমেশন দিন  </h5>
+                                <h5 class="potro_font">Enter Your Information  </h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="name">আপনার নাম লিখুন * </label>
-                                            <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" placeholder="নাম" required>
+                                            <label for="name">Enter Your Name * </label>
+                                            <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" placeholder="Name" required>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -670,8 +668,8 @@
                                     <!-- col-end -->
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="phone">আপনার মোবাইল লিখুন *</label>
-                                            <input type="number" minlength="11" id="number" maxlength="11" pattern="0[0-9]+" title="please enter number only and 0 must first character" title="Please enter an 11-digit number." id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{old('phone')}}" placeholder="+৮৮ বাদে ১১ সংখ্যা "  required>
+                                            <label for="phone">Enter Your Mobile Number *</label>
+                                            <input type="tel" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{old('phone')}}" placeholder="Enter your mobile number" required>
                                             @error('phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -682,8 +680,8 @@
                                     <!-- col-end -->
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="address">আপনার ঠিকানা লিখুন   *</label>
-                                            <input type="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="জেলা, থানা, গ্রাম " name="address" value="{{old('address')}}"  required>
+                                            <label for="address">Enter Your Address   *</label>
+                                            <input type="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Jela, Thana, Gram " name="address" value="{{old('address')}}"  required>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -693,7 +691,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="area">আপনার এরিয়া সিলেক্ট করুন  *</label>
+                                            <label for="area">Select Your Area  *</label>
                                             <select type="area" id="area" class="form-control @error('area') is-invalid @enderror" name="area"   required>
                                                 @foreach($shippingcharge as $key=>$value)
                                                 <option value="{{$value->id}}">{{$value->name}}</option>
@@ -709,7 +707,7 @@
                                     <!-- col-end -->
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <button class="order_place" type="submit">অর্ডার কন্ফার্ম করুন </button>
+                                            <button class="order_place" type="submit">Confirm Order </button>
                                         </div>
                                     </div>
                                 </div>

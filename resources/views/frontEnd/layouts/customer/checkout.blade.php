@@ -39,13 +39,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
                                             <label for="phone">Enter mobile number *</label>
-                                            <input type="text" minlength="11" id="number" maxlength="11"
-                                                pattern="0[0-9]+"
-                                                title="please enter number only and 0 must first character"
-                                                title="Please enter an 11-digit number." id="phone"
-                                                class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                                value="@if(Auth::guard('customer')->user()){{ Auth::guard('customer')->user()->phone }}@else{{ old('phone') }}@endif"
-                                                required />
+                                            <input type="tel" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="@if(Auth::guard('customer')->user()){{ Auth::guard('customer')->user()->phone }}@else{{ old('phone') }}@endif" placeholder="Enter your mobile number" required />
                                             @error('phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
