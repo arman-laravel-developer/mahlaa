@@ -25,6 +25,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
           local-dir: ./
-          exclude: |
-            **/admin-template/**
-            **/front-template/**
