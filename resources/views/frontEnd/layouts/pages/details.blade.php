@@ -95,8 +95,8 @@
                                             <p class="name">{{ $details->name }}</p>
                                             <p class="details-price">
                                                 @if ($details->old_price)
-                                                    <del>৳{{ $details->old_price }}</del>
-                                                @endif ৳{{ $details->new_price }}
+                                                    <del>{{ formatPrice($details->old_price) }}</del>
+                                                @endif {{ formatPrice($details->new_price) }}
                                             </p>
                                             <div class="details-ratting-wrapper">
                                             @php
@@ -127,7 +127,7 @@
                                             <a class="all-reviews-button" href="#writeReview">See Reviews</a>
                                             </div>
                                             <div class="product-code">
-                                                <p><span>প্রোডাক্ট কোড : </span>{{ $details->product_code }}</p>
+                                                <p><span>Product code : </span>{{ $details->product_code }}</p>
                                             </div>
                                             <form action="{{ route('cart.store') }}" method="POST" name="formName">
                                                 @csrf
@@ -209,12 +209,12 @@
                                                             <div class="d-flex single_product col-sm-12">
                                                                 <input type="submit" class="btn px-4 add_cart_btn"
                                                                     onclick="return sendSuccess();" name="add_cart"
-                                                                    value="কার্টে যোগ করুন" />
+                                                                    value="Add to cart" />
 
                                                                 <input type="submit"
                                                                     class="btn px-4 order_now_btn order_now_btn_m"
                                                                     onclick="return sendSuccess();" name="order_now"
-                                                                    value="অর্ডার করুন" />
+                                                                    value="Order Now" />
                                                             </div>
                                                         </div>
                                                         <div class="mt-md-2 mt-2">
@@ -232,26 +232,11 @@
                                                                 href="https://api.whatsapp.com/send?phone={{ $contact->whatsapp }}&text=হ্যালো, আমি এই পণ্যটির ব্যাপারে জানতে চাই: {{ urlencode(Request::url()) }}"
                                                                 target="_blank">
                                                                 <i class="fa fa-whatsapp"></i>
-                                                                এই পণ্যটি সম্পর্কে জিজ্ঞাসা করুন
+                                                                Ask about this product
                                                             </a>
                                                         </h4>
                                                     </div>
 
-                                                        <div class="mt-md-2 mt-2">
-                                                            <div class="del_charge_area">
-                                                                <div class="alert alert-info text-xs">
-                                                                    <div class="flext_area">
-                                                                        <i class="fa-solid fa-cubes"></i>
-                                                                        <div>
-
-                                                                            @foreach ($shippingcharge as $key => $value)
-                                                                                <span>{{ $value->name }} <br /></span>
-                                                                            @endforeach
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                      
                                             </form>
 
@@ -299,7 +284,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="description tab-content details-action-box" id="description">
-                    <h2>বিস্তারিত</h2>
+                    <h2>Description</h2>
                     <p>{!! $details->description !!}</p>
                 </div>
                 <div class="tab-content details-action-box" id="writeReview">
@@ -497,8 +482,8 @@
 
                              <div class="pro_price">
                                 <p>
-                                    <del>৳ {{ $value->old_price }}</del>
-                                    ৳ {{ $value->new_price }} @if ($value->old_price)
+                                    <del>{{ formatPrice($value->old_price) }}</del>
+                                    {{ formatPrice($value->new_price) }} @if ($value->old_price)
                                     @endif
                                 </p>
                             </div>
@@ -507,7 +492,7 @@
                                 <div class="cart_btn order_button">
                                     <a href="{{ route('product', $value->slug) }}"
                                         class="addcartbutton">
-                                        <span>অর্ডার করুন</span>
+                                        <span>Order Now</span>
                                     </a>
                                 </div>
                                
@@ -516,7 +501,7 @@
                             <div class="pro_btn">
                                 <div class="cart_btn order_button">
                                     <a class="addcartbutton" data-id="{{ $value->id }}" data-checkout="yes">
-                                        <span>অর্ডার করুন</span>
+                                        <span>Order Now</span>
                                     </a>
                                 </div>
                             </div>

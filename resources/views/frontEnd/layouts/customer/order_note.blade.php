@@ -1,7 +1,7 @@
 @extends('frontEnd.layouts.master')
 @section('title','Order Note')
 @section('content')
-<section class="customer-section">
+<section class="customer-section py-5">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">

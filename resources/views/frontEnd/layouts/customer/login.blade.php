@@ -1,16 +1,16 @@
 @extends('frontEnd.layouts.master')
 @section('title','Customer Login')
 @section('content')
-<section class="auth-section">
+<section class="auth-section py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-5">
                 <div class="form-content">
-                    <p class="auth-title"> কাস্টমার লগিন </p>
+                    <p class="auth-title"> Customer Login </p>
                     <form action="{{route('customer.signin')}}" method="POST"  data-parsley-validate="">
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="phone">মোবাইল নাম্বার</label>
+                            <label for="phone">Mobile Number</label>
                             <input type="number" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"  required>
                             @error('phone')
                                 <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
                         </div>
                         <!-- col-end -->
                         <div class="form-group mb-3">
-                            <label for="password">পাসওয়ার্ড</label>
+                            <label for="password">Password</label>
                             <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}"  required>
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -29,15 +29,15 @@
                             @enderror
                         </div>
                         <!-- col-end -->
-                        <a href="{{route('customer.forgot.password')}}" class="forget-link"><i class="fa-solid fa-unlock"></i> পাসওয়ার্ড ভুলে গেছেন?</a>
+                        <a href="{{route('customer.forgot.password')}}" class="forget-link"><i class="fa-solid fa-unlock"></i> Forgot Password?</a>
                         <div class="form-group mb-3">
-                            <button class="submit-btn"> লগিন </button>
+                            <button class="submit-btn"> Login </button>
                         </div>
                      <!-- col-end -->
                      </form>
                      <div class="register-now no-account">
-                        <p> একাউন্ট না থাকলে? </p>
-                        <a href="{{route('customer.register')}}"><i data-feather="edit-3"></i> রেজিস্ট্রেশন করুন</a>
+                        <p> Don't have an account? </p>
+                        <a href="{{route('customer.register')}}"><i data-feather="edit-3"></i> Register Now</a>
                     </div>
                 </div>
             </div>

@@ -40,6 +40,9 @@ class GeneralSettingController extends Controller
 			'og_baner' => 'required',
             'favicon' => 'required',
             'status' => 'required',
+            'currency_code' => 'required|max:3',
+            'currency_symbol' => 'required|max:5',
+            'currency_name' => 'required|max:50',
         ]);
 
         // image with intervention 
@@ -108,6 +111,9 @@ class GeneralSettingController extends Controller
         $input['dark_logo'] = $image2Url;
         $input['favicon'] = $image3Url;
 		 $input['og_baner'] = $image4Url;
+        $input['currency_code'] = $request->currency_code ?? 'USD';
+        $input['currency_symbol'] = $request->currency_symbol ?? '$';
+        $input['currency_name'] = $request->currency_name ?? 'US Dollar';
         GeneralSetting::create($input);
         Toastr::success('Success','Data insert successfully');
         return redirect()->route('settings.index');
@@ -122,10 +128,18 @@ class GeneralSettingController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+            'currency_code' => 'required|max:3',
+            'currency_symbol' => 'required|max:5',
+            'currency_name' => 'required|max:50',
         ]);
         $update_data = GeneralSetting::find($request->id);
         $input = $request->all();
+        
+        // Handle currency fields
+        $input['currency_code'] = $request->currency_code ?? $update_data->currency_code;
+        $input['currency_symbol'] = $request->currency_symbol ?? $update_data->currency_symbol;
+        $input['currency_name'] = $request->currency_name ?? $update_data->currency_name;
         // new white logo
         $image = $request->file('white_logo');
         if($image){

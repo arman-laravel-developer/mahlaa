@@ -49,6 +49,10 @@ Route::get('/controller', function() {
     return "Controller Done!";
 });
 
+Route::get('/test-currency', function() {
+    return view('test-currency');
+});
+
 Route::group(['namespace'=>'Frontend', 'middleware' => ['ipcheck','check_refer']], function() {
     Route::get('/', [FrontendController::class, 'index'])->name('home');
     Route::get('category/{category}', [FrontendController::class, 'category'])->name('category');

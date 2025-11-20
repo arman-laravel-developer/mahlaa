@@ -8,10 +8,10 @@
 <table class="cart_table table table-bordered table-striped text-center mb-0">
         <thead>
          <tr>
-          <th style="width: 20%;">ডিলিট</th>
-          <th style="width: 40%;">প্রোডাক্ট</th>
-          <th style="width: 20%;">পরিমাণ</th>
-          <th style="width: 20%;">মূল্য</th>
+          <th style="width: 20%;">Delete</th>
+          <th style="width: 40%;">Product</th>
+          <th style="width: 20%;">Quantity</th>
+          <th style="width: 20%;">Price</th>
          </tr>
         </thead>
 
@@ -39,35 +39,35 @@
             </div>
            </div>
           </td>
-          <td><span class="alinur">৳ </span><strong>{{$value->price}}</strong></td>
+          <td><strong>{{ formatPrice($value->price) }}</strong></td>
          </tr>
          @endforeach
         </tbody>
         <tfoot>
          <tr>
-          <th colspan="3" class="text-end px-4">মোট</th>
+          <th colspan="3" class="text-end px-4">Total</th>
           <td>
-           <span id="net_total"><span class="alinur">৳ </span><strong>{{$subtotal}}</strong></span>
+           <span id="net_total"><span class="alinur"> </span><strong>{{formatPrice($subtotal)}}</strong></span>
           </td>
          </tr>
          <tr>
-          <th colspan="3" class="text-end px-4">ডেলিভারি চার্জ</th>
+          <th colspan="3" class="text-end px-4">Delivery Charge</th>
           <td>
-           <span id="cart_shipping_cost"><span class="alinur">৳ </span><strong>{{$shipping}}</strong></span>
+           <span id="cart_shipping_cost"><span class="alinur"> </span><strong>{{formatPrice($shipping)}}</strong></span>
           </td>
          </tr>
          @if(Session::get('discount', 0) > 0)
          <tr>
-            <th colspan="3" class="text-end px-4">কুপন ছাড়</th>
+            <th colspan="3" class="text-end px-4">Coupon Discount</th>
             <td>
-                <span id="discount"><span class="alinur">৳ </span><strong>{{ Session::get('discount', 0) }}</strong></span>
+                <span id="discount"><span class="alinur"> </span><strong>{{formatPrice(Session::get('discount', 0))}}</strong></span>
             </td>
         </tr>
         @endif
          <tr>
-          <th colspan="3" class="text-end px-4">সর্বমোট</th>
+          <th colspan="3" class="text-end px-4">Grand Total</th>
           <td>
-           <span id="grand_total"><span class="alinur">৳ </span><strong>{{$subtotal+$shipping-Session::get('discount', 0)}}</strong></span>
+           <span id="grand_total"><span class="alinur"> </span><strong>{{formatPrice($subtotal+$shipping-Session::get('discount', 0)   )}}</strong></span>
           </td>
          </tr>
         </tfoot>

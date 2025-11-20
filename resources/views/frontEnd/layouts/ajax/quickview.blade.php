@@ -7,7 +7,7 @@
 		<div class="product-details-cart">
             <p class="name">{{$data->name}}</p>
              <p style="display: none;" class="product_star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> ({{$data->reviews_count}} customer review)</p>
-            <p class="details-price">৳{{$data->new_price}} @if($data->old_price)<del>৳{{$data->old_price}}</del>@endif</p>
+            <p class="details-price">{{ formatPrice($data->new_price) }} @if($data->old_price)<del>{{ formatPrice($data->old_price) }}</del>@endif</p>
             <div class="details_short">
                 {!! $data->short_description !!}
             </div>

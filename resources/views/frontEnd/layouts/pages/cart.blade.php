@@ -45,7 +45,7 @@
          <tr>
           <td><img height="30" src="{{asset($value->options->image)}}" alt="" /></td>
           <td class="cart_name">{{$value->name}}</td>
-          <td>{{$value->price}} ৳</td>
+          <td>{{ formatPrice($value->price) }}</td>
           <td>
            <div class="qty-cart vcart-qty">
             <div class="quantity">
@@ -55,7 +55,7 @@
             </div>
            </div>
           </td>
-          <td>{{$value->price*$value->qty}} ৳</td>
+          <td>{{ formatPrice($value->price*$value->qty) }}</td>
           <td>
            <button class="remove-cart cart_remove" data-id="{{$value->rowId}}"><i data-feather="x"></i></button>
           </td>
@@ -84,19 +84,19 @@
        </tr>
        <tr>
         <td>Total</td>
-        <td>৳{{$subtotal}}</td>
+        <td>{{ formatPrice($subtotal) }}</td>
        </tr>
        <tr>
         <td>Shipping</td>
-        <td>৳{{$shipping}}</td>
+        <td>{{ formatPrice($shipping) }}</td>
        </tr>
        <tr>
         <td>Discount</td>
-        <td>৳{{$discount}}</td>
+        <td>{{ formatPrice($discount) }}</td>
        </tr>
        <tr>
         <td>Total</td>
-        <td>৳{{($subtotal+$shipping) - $discount}}</td>
+        <td>{{ formatPrice(($subtotal+$shipping) - $discount) }}</td>
        </tr>
       </tbody>
      </table>

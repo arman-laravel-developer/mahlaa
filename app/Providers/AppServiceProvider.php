@@ -47,7 +47,18 @@ class AppServiceProvider extends ServiceProvider
             Config::set(['shurjopay.apiCredentials.base_url' => $shurjopay->base_url]);
         }
         $generalsetting = GeneralSetting::where('status',1)->limit(1)->first();
-        view()->share('generalsetting',$generalsetting); 
+        view()->share('generalsetting',$generalsetting);
+        
+        // Share currency settings
+        if ($generalsetting) {
+            view()->share('currency_code', $generalsetting->currency_code ?? 'USD');
+            view()->share('currency_symbol', $generalsetting->currency_symbol ?? '$');
+            view()->share('currency_name', $generalsetting->currency_name ?? 'US Dollar');
+        } else {
+            view()->share('currency_code', 'USD');
+            view()->share('currency_symbol', '$');
+            view()->share('currency_name', 'US Dollar');
+        } 
 
         $sidecategories = Category::where('parent_id','=','0')->where('status',1)->select('id','name','slug','status','image')->get();
         view()->share('sidecategories',$sidecategories); 

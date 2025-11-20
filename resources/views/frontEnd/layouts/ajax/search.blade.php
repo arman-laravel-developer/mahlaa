@@ -10,7 +10,7 @@
 					</div>
 					<div class="search_content">
 						<p class="name">{{$value->name}}</p>                 
-						<p  class="price">৳{{$value->new_price}} @if($value->old_price)<del>৳{{$value->old_price}}</del>@endif</p>
+						<p  class="price">{{ formatPrice($value->new_price) }} @if($value->old_price)<del>{{ formatPrice($value->old_price) }}</del>@endif</p>
 					</div>
 			</li>
 		</a>

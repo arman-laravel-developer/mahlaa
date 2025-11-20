@@ -168,7 +168,7 @@
                                         <div class="sale-badge-box">
                                             <span class="sale-badge-text">
                                                 <p>@php $discount=(((($value->old_price)-($value->new_price))*100) / ($value->old_price)) @endphp {{ number_format($discount, 0) }}%</p>
-                                                ছাড়
+                                                OFF
                                             </span>
                                         </div>
                                     </div>
@@ -215,8 +215,8 @@
 
                              <div class="pro_price">
                                 <p>
-                                    <del>৳ {{ $value->old_price }}</del>
-                                    ৳ {{ $value->new_price }} @if ($value->old_price)
+                                    <del>{{ formatPrice($value->old_price) }}</del>
+                                    {{ formatPrice($value->new_price) }} @if ($value->old_price)
                                     @endif
                                 </p>
                             </div>
@@ -225,7 +225,7 @@
                                 <div class="cart_btn order_button">
                                     <a href="{{ route('product', $value->slug) }}"
                                         class="addcartbutton">
-                                        <span>অর্ডার করুন</span>
+                                        <span>Order Now</span>
                                     </a>
                                 </div>
                                
@@ -237,7 +237,7 @@
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $value->id }}" />
                                         <input type="hidden" name="qty" value="1" />
-                                        <button type="submit">অর্ডার করুন</button>
+                                        <button type="submit">Order Now</button>
                                     </form>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
                                         <div class="sale-badge-box">
                                             <span class="sale-badge-text">
                                                 <p>@php $discount=(((($value->old_price)-($value->new_price))*100) / ($value->old_price)) @endphp {{ number_format($discount, 0) }}%</p>
-                                                ছাড়
+                                                OFF
                                             </span>
                                         </div>
                                     </div>
@@ -339,8 +339,8 @@
 
                              <div class="pro_price">
                                 <p>
-                                    <del>৳ {{ $value->old_price }}</del>
-                                    ৳ {{ $value->new_price }} @if ($value->old_price)
+                                    <del>{{ formatPrice($value->old_price) }}</del>
+                                    {{ formatPrice($value->new_price) }} @if ($value->old_price)
                                     @endif
                                 </p>
                             </div>
@@ -349,7 +349,7 @@
                                 <div class="cart_btn order_button">
                                     <a href="{{ route('product', $value->slug) }}"
                                         class="addcartbutton">
-                                        <span>অর্ডার করুন</span>
+                                        <span>Order Now</span>
                                     </a>
                                 </div>
                                
@@ -361,7 +361,7 @@
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $value->id }}" />
                                         <input type="hidden" name="qty" value="1" />
-                                        <button type="submit">অর্ডার করুন</button>
+                                        <button type="submit">Order Now</button>
                                     </form>
                                 </div>
                             </div>

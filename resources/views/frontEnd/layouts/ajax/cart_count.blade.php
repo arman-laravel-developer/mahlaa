@@ -16,11 +16,11 @@
       <li><a href=""><img src="{{asset($value->options->image)}}" alt=""></a></li>
       <li><a href="">{{$value->name}}</a></li>
       <li>Qty: {{$value->qty}}</li>
-      <li><p>৳{{$value->price}}</p><button class="remove-cart cart_remove" data-id="{{$value->rowId}}"><i data-feather="x"></i></button></li>
+      <li><p>{{ formatPrice($value->price) }}</p><button class="remove-cart cart_remove" data-id="{{$value->rowId}}"><i data-feather="x"></i></button></li>
     @endforeach
     </ul>
-    <p><strong>সর্বমোট : ৳{{$subtotal}}</strong></p>
-    <a href="{{route('customer.checkout')}}" class="go_cart">  অর্ডার করুন </a>
+    <p><strong>Total : {{ formatPrice($subtotal) }}</strong></p>
+    <a href="{{route('customer.checkout')}}" class="go_cart">  Order Now </a>
   </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>

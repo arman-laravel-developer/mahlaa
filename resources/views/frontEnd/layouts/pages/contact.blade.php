@@ -2,7 +2,7 @@
 @section('title','Customer Account')
 @section('content')
 
-<section class="comn_sec">
+<section class="comn_sec py-5">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -14,7 +14,7 @@
                         </li>
                         @endforeach
                         <li>
-                            <a href="{{route('contact')}}">যোগাযোগ করুন</a>
+                            <a href="{{route('contact')}}">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -53,12 +53,12 @@
             </div>
              <div class="col-sm-10">
                 <div class="contact-form">
-                    <h5 class="account-title">অথবা </h5>
+                    <h5 class="account-title">Or </h5>
                     <form action="{{route('home')}}" method="POST" class="row" enctype="multipart/form-data" data-parsley-validate="">
                         @csrf
                         <div class="col-sm-6">
                             <div class="form-group mb-3">
-                                <label for="name">সম্পূর্ণ নাম *</label>
+                                <label for="name">Full Name *</label>
                                 <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" required>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
                         <!-- col-end -->
                         <div class="col-sm-6">
                             <div class="form-group mb-3">
-                                <label for="phone">মোবাইল নাম্বার *</label>
+                                <label for="phone">Mobile Number *</label>
                                 <input type="number" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{old('phone')}}"  required>
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -82,7 +82,7 @@
                         <!-- col-end -->
                         <div class="col-sm-12">
                             <div class="form-group mb-3">
-                                <label for="email">ইমেইল *</label>
+                                <label for="email">Email *</label>
                                 <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}"  required>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -94,7 +94,7 @@
                         <!-- col-end -->
                         <div class="col-sm-12">
                             <div class="form-group mb-3">
-                                <label for="subject">বিষয় *</label>
+                                <label for="subject">Subject *</label>
                                 <input type="text" id="subject" class="form-control @error('subject') is-invalid @enderror" name="subject" value="{{old('subject')}}"  required>
                                 @error('subject')
                                     <span class="invalid-feedback" role="alert">
@@ -106,7 +106,7 @@
                         <!-- col-end -->
                         <div class="col-sm-12">
                             <div class="form-group mb-3">
-                                <label for="message">মেসেজ লিখুন *</label>
+                                <label for="message">Write Your Message *</label>
                                 <textarea type="text" id="message" class="form-control @error('message') is-invalid @enderror" name="message" value="{{old('message')}}"  required></textarea>
                                 @error('message')
                                     <span class="invalid-feedback" role="alert">
@@ -118,7 +118,7 @@
                         <!-- col-end -->
                         <div class="col-sm-12">
                             <div class="form-group mb-3">
-                                <button type="submit" class="submit-btn">মেসেজ পাঠান</button>
+                                <button type="submit" class="submit-btn">Send Message</button>
                             </div>
                         </div>
                         <!-- col-end -->

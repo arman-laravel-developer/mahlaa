@@ -1,7 +1,7 @@
 @extends('frontEnd.layouts.master')
 @section('title','Forgot Password Reset')
 @section('content')
-<section class="auth-section">
+<section class="auth-section py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-5">

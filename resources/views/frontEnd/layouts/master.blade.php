@@ -240,13 +240,13 @@ src="https://www.facebook.com/tr?id=2355381278153504&ev=PageView&noscript=1"
                                                         <li><a href="">{{Str::limit($value->name, 30)}}</a></li>
                                                         <li>Qty: {{$value->qty}}</li>
                                                         <li>
-                                                            <p>৳{{$value->price}}</p>
+                                                            <p>{{ formatPrice($value->price) }}</p>
                                                             <button class="remove-cart cart_remove" data-id="{{$value->rowId}}"><i data-feather="x"></i></button>
                                                         </li>
                                                         @endforeach
                                                     </ul>
-                                                    <p><strong>সর্বমোট : ৳{{$subtotal}}</strong></p>
-                                                    <a href="{{route('customer.checkout')}}" class="go_cart"> অর্ডার করুন </a>
+                                                    <p><strong>Total : {{ formatPrice($subtotal) }}</strong></p>
+                                                    <a href="{{route('customer.checkout')}}" class="go_cart"> Order Now </a>
                                                 </div>
                                             </li>
                                         </ul>

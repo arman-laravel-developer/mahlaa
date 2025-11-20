@@ -341,7 +341,7 @@
                                 <div class="banner_t">
                                     <h2>{{$campaign_data->banner_title}}</h2>
                                     
-                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"><i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন </a>
+                                    <a href="#order_form" class="cam_order_now" id="cam_order_now"><i class="fa-solid fa-cart-shopping"></i> Order Now </a>
                                     <p class="megaoffer_btn">মেগা অফার {{$subtotal}} Tk টাকা</p>
                                 </div>
                             </div>
@@ -369,7 +369,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="ord_btn">
-                            <a href="#order_form" class="cam_order_now" id="cam_order_now"> অর্ডার করতে ক্লিক করুন <i class="fa-solid fa-hand-point-right"></i> </a>
+                            <a href="#order_form" class="cam_order_now" id="cam_order_now"> Click here to Order <i class="fa-solid fa-hand-point-right"></i> </a>
                         </div>
                     </div>
                 </div>
@@ -502,7 +502,7 @@
                     <div class="col-sm-12">
                         <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="campaign_offer">অফারটি সীমিত সময়ের জন্য, তাই অফার শেষ হওয়ার আগেই অর্ডার করুন</h2>
+                    <h2 class="campaign_offer">Offer is for a limited time only, so order before the offer ends</h2>
                     @if($campaign_data->note)
                     <p class="my-1 text-center">
                         {!! $campaign_data->note !!}
@@ -529,7 +529,7 @@
                                                     <img src="{{ asset($product->image->image) }}" class="card-img-top" alt="{{ $product->name }}" style="height: 100px; object-fit: cover;"> <!-- Fixed height and object-fit -->
                                                     <div class="card-body p-1 text-center"> <!-- Centered text for a better layout -->
                                                         <div class="card-title">{{ Str::limit($product->name, 20) }}</div>
-                                                        <div class="card-text mb-1">৳{{ $product->new_price }} <del>৳{{ $product->old_price }}</del></div>
+                                                        <div class="card-text mb-1">{{ formatPrice($product->new_price) }} <del>{{ formatPrice($product->old_price) }}</del></div>
                                                     </div>
                                                 </label>
                                             </div>
@@ -616,7 +616,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>৳{{$value->price*$value->qty}}</td>
+                                            <td>{{ formatPrice($value->price*$value->qty) }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

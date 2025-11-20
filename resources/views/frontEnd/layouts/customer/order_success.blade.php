@@ -1,7 +1,7 @@
 @extends('frontEnd.layouts.master')
 @section('title','Order Success')
 @section('content')
-<section class="customer-section">
+<section class="customer-section py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
@@ -9,7 +9,7 @@
                     <img src="{{asset('public/frontEnd/images/order-success.png')}}" alt="">
                 </div>
                 <div class="success-title">
-                    <h2>আপনার অর্ডারটি আমাদের কাছে সফলভাবে পৌঁছেছে, কিছুক্ষনের মধ্যে আমাদের একজন প্রতিনিধি আপনার নাম্বারে কল করবেন </h2>
+                    <h2>Your order has been successfully received by us. One of our representatives will call you shortly</h2>
                 </div>
 
                 <h5 class="my-3">Your Order Details</h5>
@@ -31,7 +31,7 @@
                                 </td>
                                 <td>
                                     <p>Total</p>
-                                    <p><strong>৳ {{$order->amount}}</strong></p>
+                                    <p><strong>{{ formatPrice($order->amount) }}</strong></p>
                                 </td>
                             </tr>
                             <tr>
@@ -66,29 +66,29 @@
                                     <p>{{$value->product_name}} x {{$value->qty}}</p>
 
                                 </td>
-                                <td><p><strong>৳ {{$value->sale_price}}</strong></p></td>
+                                <td><p><strong>{{ formatPrice($value->sale_price) }}</strong></p></td>
                             </tr>
                             @endforeach
                             <tr>
                                 <th  class="text-end px-4">Net Total</th>
-                                <td><strong id="net_total">৳{{$order->amount + $order->discount- $order->shipping_charge}}</strong></td>
+                                <td><strong id="net_total">{{ formatPrice($order->amount + $order->discount- $order->shipping_charge) }}</strong></td>
                             </tr>
                             @if($order->discount)
                             <tr>
                                 <th  class="text-end px-4">Discount</th>
-                                <td><strong id="net_total">৳{{$order->discount}}</strong></td>
+                                <td><strong id="net_total">{{ formatPrice($order->discount) }}</strong></td>
                             </tr>
                             @endif
                             <tr>
                                 <th  class="text-end px-4">Shipping Cost</th>
                                 <td>
-                                    <strong id="cart_shipping_cost">৳{{$order->shipping_charge}}</strong>
+                                    <strong id="cart_shipping_cost">{{ formatPrice($order->shipping_charge) }}</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <th  class="text-end px-4">Grand Total</th>
                                 <td>
-                                    <strong id="grand_total">৳{{$order->amount}}</strong>
+                                    <strong id="grand_total">{{ formatPrice($order->amount) }}</strong>
                                 </td>
                             </tr>
                         </tbody>
@@ -165,9 +165,9 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$value->product_name}} <br> @if($value->product_size) <small>Size: {{$value->product_size}}</small> @endif   @if($value->product_color) <small>Color: {{$value->product_color}}</small> @endif </td>
-                                <td>৳{{$value->sale_price}}</td>
+                                <td>{{ formatPrice($value->sale_price) }}</td>
                                 <td>{{$value->qty}}</td>
-                                <td>৳{{$value->sale_price*$value->qty}}</td>
+                                <td>{{ formatPrice($value->sale_price*$value->qty) }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -178,19 +178,19 @@
                             <tbody style="background:#f1f9f8">
                                 <tr>
                                     <td><strong>SubTotal</strong></td>
-                                    <td><strong>৳{{$order->amount + $order->discount- $order->shipping_charge}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->amount + $order->discount- $order->shipping_charge) }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Shipping(+)</strong></td>
-                                    <td><strong>৳{{$order->shipping_charge}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->shipping_charge) }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Discount(-)</strong></td>
-                                    <td><strong>৳{{$order->discount}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->discount) }}</strong></td>
                                 </tr>
                                 <tr style="background:#4DBC60;color:#fff">
                                     <td><strong>Final Total</strong></td>
-                                    <td><strong>৳{{$order->amount}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->amount) }}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

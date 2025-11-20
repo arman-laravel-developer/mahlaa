@@ -16,19 +16,19 @@
             </tr>
             <tr>
                 <td>Total</td>
-                <td>৳{{$subtotal}}</td>
+                <td>{{ formatPrice($subtotal) }}</td>
             </tr>
             <tr>
                 <td>Shipping</td>
-                <td>৳{{$shipping}}</td>
+                <td>{{ formatPrice($shipping) }}</td>
             </tr>
             <tr>
                 <td>Discount</td>
-                <td>৳{{$discount}}</td>
+                <td>{{ formatPrice($discount) }}</td>
             </tr>
             <tr>
                 <td>Total</td>
-                <td>৳{{($subtotal+$shipping) - $discount}}</td>
+                <td>{{ formatPrice(($subtotal+$shipping) - $discount) }}</td>
             </tr>
         </tbody>
     </table>

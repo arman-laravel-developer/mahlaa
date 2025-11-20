@@ -80,9 +80,9 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$value->product_name}}</td>
-                                <td>৳{{$value->sale_price}}</td>
+                                <td>{{ formatPrice($value->sale_price) }}</td>
                                 <td>{{$value->qty}}</td>
-                                <td>৳{{$value->sale_price*$value->qty}}</td>
+                                <td>{{ formatPrice($value->sale_price*$value->qty) }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -93,19 +93,19 @@
                             <tbody style="background:#00aef0">
                                 <tr style="color:#fff">
                                     <td><strong>SubTotal</strong></td>
-                                    <td><strong>৳{{$order->orderdetails->sum('sale_price')}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->orderdetails->sum('sale_price')) }}</strong></td>
                                 </tr>
                                 <tr style="color:#fff">
                                     <td><strong>Shipping(+)</strong></td>
-                                    <td><strong>৳{{$order->shipping_charge}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->shipping_charge) }}</strong></td>
                                 </tr>
                                 <tr style="color:#fff">
                                     <td><strong>Discount(-)</strong></td>
-                                    <td><strong>৳{{$order->discount}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->discount) }}</strong></td>
                                 </tr>
                                 <tr style="background:#00aef0;color:#fff">
                                     <td><strong>Final Total</strong></td>
-                                    <td><strong>৳{{$order->amount}}</strong></td>
+                                    <td><strong>{{ formatPrice($order->amount) }}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

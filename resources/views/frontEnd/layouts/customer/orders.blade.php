@@ -29,8 +29,8 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$value->created_at->format('d-m-y')}}</td>
-                                    <td>৳{{$value->amount}}</td>
-                                    <td>৳{{$value->discount}}</td>
+                                    <td>{{ formatPrice($value->amount) }}</td>
+                                    <td>{{ formatPrice($value->discount) }}</td>
                                     <td>{{$value->status?$value->status->name:''}}</td>
                                     <td><a href="{{route('customer.invoice',['id'=>$value->id])}}" class="invoice_btn"><i class="fa-solid fa-eye"></i></a>
                                     @if($value->admin_note)

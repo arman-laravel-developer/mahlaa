@@ -85,7 +85,7 @@
                             <td><strong>{{$value->shipping?$value->shipping->name:''}}</strong><p>{{$value->shipping?$value->shipping->address:''}}</p></td>
                             <td>{{$value->shipping?$value->shipping->phone:''}}</td>
                             <td> <a target="_blank" style="text-decoration: underline" href="https://greenviewit.com/check-fraud-customer" >Fraud Customer Check</a></td>
-                            <td>৳{{$value->amount}}</td>
+                            <td>{{ formatPrice($value->amount) }}</td>
                             <td>{{$value->status?$value->status->name:''}}</td>
                             
                         </tr>

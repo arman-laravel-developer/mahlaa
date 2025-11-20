@@ -7,17 +7,17 @@
 @endphp
 <tr>
     <td>Sub Total</td>
-    <td>{{$subtotal}}</td>
+    <td>{{ formatPrice($subtotal) }}</td>
 </tr>
 <tr>
     <td>Shipping Fee</td>
-    <td>{{$shipping}}</td>
+    <td>{{ formatPrice($shipping) }}</td>
 </tr>
 <tr>
     <td>Discount</td>
-    <td>{{$total_discount}}</td>
+    <td>{{ formatPrice($total_discount) }}</td>
 </tr>
 <tr>
     <td>Total</td>
-    <td>{{($subtotal + $shipping)- $total_discount}}</td>
+    <td>{{ formatPrice(($subtotal + $shipping)- $total_discount) }}</td>
 </tr>

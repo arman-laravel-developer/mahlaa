@@ -127,11 +127,11 @@
          <div class="form-group mb-3">
           <select type="area" id="area" class="form-control @error('area') is-invalid @enderror" name="area" required>
            <option value="">Select....</option>
-            <option value="1">ঢাকা সিটির ভিতরে হোম ডেলিভারি</option>
+            <option value="1">Home Delivery Inside Dhaka City</option>
 
-            <option value="2">ঢাকা সিটির বাহিরে হোম ডেলিভারি</option>
+            <option value="2">Home Delivery Outside Dhaka City</option>
 
-            <option value="3">কুরিয়ার অফিস থেকে ডেলিভারি</option>
+            <option value="3">Delivery from Courier Office</option>
 
           </select>
           @error('email')
@@ -152,19 +152,19 @@
          Session::get('pos_discount')+Session::get('product_discount'); @endphp
          <tr>
           <td>Sub Total</td>
-          <td>{{$subtotal}}</td>
+          <td>{{ formatPrice($subtotal) }}</td>
          </tr>
          <tr>
           <td>Shipping Fee</td>
-          <td>{{$shipping}}</td>
+          <td>{{ formatPrice($shipping) }}</td>
          </tr>
          <tr>
           <td>Discount</td>
-          <td>{{$total_discount}}</td>
+          <td>{{ formatPrice($total_discount) }}</td>
          </tr>
          <tr>
           <td>Total</td>
-          <td>{{($subtotal + $shipping)- $total_discount}}</td>
+          <td>{{ formatPrice(($subtotal + $shipping)- $total_discount) }}</td>
          </tr>
         </tbody>
        </table>

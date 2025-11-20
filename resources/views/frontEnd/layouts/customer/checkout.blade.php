@@ -8,7 +8,7 @@
         $subtotal = str_replace('.00', '', $subtotal);
         $shipping = Session::get('shipping') ? Session::get('shipping') : 0;
     @endphp
-    <div class="container">
+    <div class="container py-3">
         <div class="row">
             <div class="col-sm-5 cus-order-2">
                 <div class="checkout-shipping">
@@ -16,14 +16,14 @@
                         @csrf
                         <div class="card">
                             <div class="card-header">
-                                <h6>আপনার অর্ডারটি কনফার্ম করতে তথ্যগুলো পূরণ করে "অর্ডার করুন" বাটন এ ক্লিক করুন </h6>
+                                <h6>Please fill in the information to confirm your order and click the "Order Now" button</h6>
                                 
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="name">আপনার নাম লিখুন *</label>
+                                            <label for="name">Enter your name *</label>
                                             <input type="text" id="name"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"
                                                 value="@if(Auth::guard('customer')->user()){{ Auth::guard('customer')->user()->name }}@else{{ old('name') }} @endif"
@@ -38,7 +38,7 @@
                                     <!-- col-end -->
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="phone">মোবাইল নাম্বার দিন *</label>
+                                            <label for="phone">Enter mobile number *</label>
                                             <input type="text" minlength="11" id="number" maxlength="11"
                                                 pattern="0[0-9]+"
                                                 title="please enter number only and 0 must first character"
@@ -56,7 +56,7 @@
                                     <!-- col-end -->
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="address">ঠিকানা লিখুন *</label>
+                                            <label for="address">Enter your address *</label>
                                             <input type="address" id="address"
                                                 class="form-control @error('address') is-invalid @enderror"
                                                 name="address"
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group mb-3">
-                                            <label for="area">ডেলিভারি এরিয়া নিবার্চন করুন *</label>
+                                            <label for="area">Select delivery area *</label>
                                             <select type="area" id="area"
                                                 class="form-control @error('area') is-invalid @enderror" name="area"
                                                 required>
@@ -93,7 +93,7 @@
                                     <div class="col-sm-12">
 
                                         <div class="radio_payment">
-                                            <label id="payment_method">পেমেন্ট মেথড (optional)</label>
+                                            <label id="payment_method">Payment Method (optional)</label>
                                             <div class="payment_option">
                                                 
                                             </div>
@@ -132,7 +132,7 @@
                                     <!-------------------->
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <button class="order_place" type="submit">অর্ডার করুন</button>
+                                            <button class="order_place" type="submit">Order Now</button>
                                         </div>
                                     </div>
                                 </div>
@@ -151,16 +151,16 @@
                 <div class="cart_details table-responsive-sm">
                     <div class="card">
                         <div class="card-header">
-                            <h5>অর্ডারের তথ্য</h5>
+                            <h5>Order Information</h5>
                         </div>
                         <div class="card-body cartlist">
                             <table class="cart_table table table-bordered table-striped text-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th style="width: 20%;">ডিলিট</th>
-                                        <th style="width: 40%;">প্রোডাক্ট</th>
-                                        <th style="width: 20%;">পরিমাণ</th>
-                                        <th style="width: 20%;">মূল্য</th>
+                                        <th style="width: 20%;">Delete</th>
+                                        <th style="width: 40%;">Product</th>
+                                        <th style="width: 20%;">Quantity</th>
+                                        <th style="width: 20%;">Price</th>
                                     </tr>
                                 </thead>
 
@@ -193,39 +193,36 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><span class="alinur">৳ </span><strong>{{ $value->price }}</strong>
+                                            <td><strong>{{ formatPrice($value->price) }}</strong>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="3" class="text-end px-4">মোট</th>
+                                        <th colspan="3" class="text-end px-4">Total</th>
                                         <td class="px-4">
-                                            <span id="net_total"><span class="alinur">৳
-                                                </span><strong>{{ $subtotal }}</strong></span>
+                                            <span id="net_total"><strong>{{ formatPrice($subtotal) }}</strong></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th colspan="3" class="text-end px-4">ডেলিভারি চার্জ</th>
+                                        <th colspan="3" class="text-end px-4">Delivery Charge</th>
                                         <td class="px-4">
-                                            <span id="cart_shipping_cost"><span class="alinur">৳
-                                                </span><strong>{{ $shipping }}</strong></span>
+                                            <span id="cart_shipping_cost"><strong>{{ formatPrice($shipping) }}</strong></span>
                                         </td>
                                     </tr>
                                      @if(Session::get('discount', 0) > 0)
                                      <tr>
-                                        <th colspan="3" class="text-end px-4">কুপন ছাড়</th>
+                                        <th colspan="3" class="text-end px-4">Coupon Discount</th>
                                         <td>
-                                            <span id="discount"><span class="alinur">৳ </span><strong>{{ Session::get('discount', 0) }}</strong></span>
+                                            <span id="discount"><strong>{{ formatPrice(Session::get('discount', 0)) }}</strong></span>
                                         </td>
                                     </tr>
                                     @endif
                                     <tr>
-                                        <th colspan="3" class="text-end px-4">সর্বমোট</th>
+                                        <th colspan="3" class="text-end px-4">Grand Total</th>
                                         <td class="px-4">
-                                            <span id="grand_total"><span class="alinur">৳
-                                                </span><strong>{{ $subtotal + $shipping - Session::get('discount', 0) }}</strong></span>
+                                            <span id="grand_total"><strong>{{ formatPrice($subtotal + $shipping - Session::get('discount', 0)) }}</strong></span>
                                         </td>
                                     </tr>
                                 </tfoot>
